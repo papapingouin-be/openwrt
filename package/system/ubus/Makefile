@@ -77,6 +77,11 @@ define Package/libubus-lua/install
 	$(CP) $(PKG_BUILD_DIR)/lua/ubus.so $(1)/usr/lib/lua/
 endef
 
+define Build/InstallDev/cmake
+	$(INSTALL_DIR) $(1)
+	$(CP) $(PKG_INSTALL_DIR)/* $(1)/
+endef
+
 $(eval $(call BuildPackage,libubus))
 $(eval $(call BuildPackage,libubus-lua))
 $(eval $(call BuildPackage,ubus))
